@@ -61,11 +61,11 @@ public sealed class FileStructure
         writer.Write((uint)AllowUnloadingLanguages);
         WriteGoogle(writer, GoogleSpreadsheet);
         writer.Write(Assets.Length);
-        foreach (var asset in Assets)
-        {
-            writer.Write(asset.FileID);
-            writer.Write(asset.PathID);
-        }
+        // foreach (var asset in Assets)
+        // {
+        //     writer.Write(asset.FileID);
+        //     writer.Write(asset.PathID);
+        // }
     }
 
     private static void WritePadding(BinaryWriter writer)
