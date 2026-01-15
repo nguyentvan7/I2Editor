@@ -61,11 +61,11 @@ public sealed class FileStructure
         writer.Write((uint)AllowUnloadingLanguages);
         WriteGoogle(writer, GoogleSpreadsheet);
         writer.Write(Assets.Length);
-        // foreach (var asset in Assets)
-        // {
-        //     writer.Write(asset.FileID);
-        //     writer.Write(asset.PathID);
-        // }
+        foreach (var asset in Assets)
+        {
+            writer.Write(asset.FileID);
+            writer.Write(asset.PathID);
+        }
     }
 
     private static void WritePadding(BinaryWriter writer)
@@ -159,15 +159,15 @@ public sealed class FileStructure
         fileStructure.AllowUnloadingLanguages = (AllowUnloadLanguages)reader.ReadUInt32();
         fileStructure.GoogleSpreadsheet = ReadGoogle(reader);
         fileStructure.Assets = new Asset[reader.ReadInt32()];
-        for (int i = 0; i < fileStructure.Assets.Length; i++)
-        {
-            fileStructure.Assets[i] = new Asset
-            {
-                FileID = reader.ReadUInt32(),
-                PathID = reader.ReadUInt64()
-            };
-        }
-
+        // for (int i = 0; i < fileStructure.Assets.Length; i++)
+        // {
+        //     fileStructure.Assets[i] = new Asset
+        //     {
+        //         FileID = reader.ReadUInt32(),
+        //         PathID = reader.ReadUInt64()
+        //     };
+        // }
+        
         return fileStructure;
     }
 
